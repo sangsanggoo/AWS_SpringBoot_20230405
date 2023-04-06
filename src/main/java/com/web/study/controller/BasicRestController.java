@@ -40,6 +40,7 @@ public class BasicRestController {
 		userMap.put(3, "삼상현");
 		userMap.put(4, "사상현");
 		userMap.put(5, "오상현");
+		
 		return ResponseEntity.ok().body(DataResponseDto.of(userMap.get(userId)));
 	}
 	@PostMapping("/create")
