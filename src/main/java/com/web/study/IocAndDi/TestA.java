@@ -1,4 +1,4 @@
-package com.web.study.IocAndDi;
+	package com.web.study.IocAndDi;
 
 import org.springframework.stereotype.Component;
 
@@ -10,3 +10,5 @@ public class TestA implements Test{
 		System.out.println("TestA 클래스!!!");
 	}
 }
+
+
