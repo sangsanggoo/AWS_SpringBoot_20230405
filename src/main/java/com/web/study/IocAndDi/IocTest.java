@@ -16,6 +16,8 @@ public class IocTest {
 	@Autowired
 	@Qualifier("t1") // component 단곳에서 이름을 바꿔줄수 있음
 	private Test test;
+	
+
 	// TestA에만 component를 달아주고
 	// @Autowired를 달아주면
 	// 생성자에서 자동으로 
@@ -29,6 +31,7 @@ public class IocTest {
 //	}
 	public void run() {
 		System.out.println("IoCTest 출력!!!");
+		
 		test.printTest();
 	}
 	// 밖에서 변수를 넣어줄때마다 다르게 적용됨

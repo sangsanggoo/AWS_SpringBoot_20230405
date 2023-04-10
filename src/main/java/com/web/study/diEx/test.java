@@ -1,14 +1,9 @@
 package com.web.study.diEx;
 
 public class test {
-	private A a;
-	private B b;
+	private Inte inte ;
+	private Inte inte2;
 	public test() {
-		this.a = new A();
-		this.b = new B();
-	}
-	public void printtest() {
-		a.printtest();
-		b.printtest();
+		this.inte = 
 	}
 }

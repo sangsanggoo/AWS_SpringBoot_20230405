@@ -8,5 +8,12 @@
 		insert into lecture_mst
 		values (0,#{lecture_name},#{lecture_price},#{lecturer_id})
 	</insert>
-	
+	<select id="getLectureAll" resultType = "Lecture">
+		select
+			id,
+			name,
+			birth_date 
+		from
+			lecture_mst
+	</select>
 </mapper>

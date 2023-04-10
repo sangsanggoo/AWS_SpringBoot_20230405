@@ -1,11 +1,13 @@
 package com.web.study.controller.Lecture;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.study.Service.LectureService;
+import com.web.study.dto.DataResponseDto;
 import com.web.study.dto.ResponseDto;
 import com.web.study.dto.request.lecture.LectureReqDto;
 
@@ -25,9 +27,12 @@ public class LectureController {
 		lectureService.registLecture(lectureReqDto);
 //		lectureSerivce(인터페이스)의 LectureserviceImpl이 IOC로 자동생성이된 후
 //		lectureServiceImpl로 가서 다음 설명
-		
-		
+
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());
+	}
+	@GetMapping("/lectures")
+	public ResponseEntity<? extends ResponseDto> getLectureAll() {
+		return ResponseEntity.ok().body(DataResponseDto.of(lectureService.getLectureAll()));
 	}
 	// READ
 	public ResponseEntity<? extends ResponseDto> get() {
