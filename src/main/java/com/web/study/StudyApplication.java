@@ -1,11 +1,7 @@
 package com.web.study;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.web.study.IocAndDi.IocTest;
-import com.web.study.IocAndDi.TestA;
 
 @SpringBootApplication
 public class StudyApplication {

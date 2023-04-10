@@ -4,13 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.web.study.Repository.LectureRepository;
 import com.web.study.domain.entity.Lecture;
-import com.web.study.domain.entity.LectureRegist;
-import com.web.study.domain.entity.Lecturer;
-import com.web.study.domain.entity.Student;
-import com.web.study.dto.request.LectureRegistReqDto;
-import com.web.study.dto.request.LectureReqDto;
-import com.web.study.dto.request.LecturerReqDto;
-import com.web.study.dto.request.StudentReqDto;
+import com.web.study.dto.request.lecture.LectureReqDto;
 
 import lombok.RequiredArgsConstructor;
 //@service는 컴포넌트 종류중 하나 @Component처럼 ioc(Service) 컨테이너에 넣어주는거임 
@@ -33,20 +27,6 @@ public class LectureServiceImpl implements LectureService{
 //		lectureRepository(인터페이스)registe에 lecture를 넣어주면
 //		mappers의 Lecture.xml에서 mysql에 넣어줌
 	}
-	@Override
-	public void registLecturer(LecturerReqDto lecturerReqDto) {
-		Lecturer lecturer = lecturerReqDto.toEntity();
-		lectureRepository.registe2(lecturer);
-	}
-	@Override
-	public void registStudent(StudentReqDto studentReqDto) {
-		Student student = studentReqDto.toEntity();
-		lectureRepository.registe3(student);
-	}
-	@Override
-	public void registLecetureRegist(LectureRegistReqDto lectureRegistReqDto) {
-		LectureRegist lectureRegist = lectureRegistReqDto.toEntity();
-		lectureRepository.registe4(lectureRegist);
-		
-	}
+	
+	
 }

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.web.study.IocAndDi.IocTest;
 import com.web.study.IocAndDi.IocTest2;
-import com.web.study.IocAndDi.TestA;
 
 @RestController
 public class IocTestController {
