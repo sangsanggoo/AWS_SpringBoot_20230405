@@ -17,20 +17,21 @@ public class CourseController {
 	@Autowired
 	public CourseSerivce courseSerivce;
 	
-	@PostMapping("/lecturerRegist")
+	@PostMapping("/course")
 	public ResponseEntity<? extends ResponseDto> register(@RequestBody CourseReqDto lectureRegistReqDto) {
 		courseSerivce.registCourse(lectureRegistReqDto);
 
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());
 	}
-	@GetMapping("/lectures")
+	
+	@GetMapping("/courses")
 	public ResponseEntity<? extends ResponseDto> getCourseAll() {
-		return ResponseEntity.ok().body(DataResponseDto.of(null));
+		return ResponseEntity.ok().body(DataResponseDto.of(courseSerivce.getCourseAll()));
 	}
 	
-	// READ0
-	public ResponseEntity<? extends ResponseDto> get() {
-		return ResponseEntity.ok().body(ResponseDto.ofDefault());
+	@GetMapping("/search/courses")
+	public ResponseEntity<? extends ResponseDto> searchCourse(int type,String searchValue) {
+		return ResponseEntity.ok().body(DataResponseDto.of(courseSerivce.searchCourse(type,searchValue)));
 	}
 	// Update
 	public ResponseEntity<? extends ResponseDto> modify() {

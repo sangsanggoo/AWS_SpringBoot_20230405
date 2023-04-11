@@ -5,13 +5,13 @@ import java.time.LocalDate;
 import lombok.Builder;
 import lombok.Getter;
 
-@Getter
 @Builder
-public class LectureRespDto {
-	private int lecturId;
+@Getter
+public class CourseRespDto {
+	private int courseId;
+	private LocalDate registeDate;
 	private String lectureName;
 	private int lecturePrice;
 	private String instructorName;
-	
-	
+	private String studentNam;
 }

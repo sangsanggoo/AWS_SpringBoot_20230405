@@ -2,6 +2,7 @@ package com.web.study.controller.Lecture;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,10 +31,21 @@ public class LectureController {
 
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());
 	}
+	
 	@GetMapping("/lectures")
 	public ResponseEntity<? extends ResponseDto> getLectureAll() {
 		return ResponseEntity.ok().body(DataResponseDto.of(lectureService.getLectureAll()));
 	}
+	@GetMapping("/lecture/{id}")
+	public ResponseEntity<? extends ResponseDto> getLectureById(@PathVariable int id) {
+		return ResponseEntity.ok().body(DataResponseDto.of(lectureService.findLectureById(id)));
+	}
+	
+	@GetMapping("/search/lectures")
+	public ResponseEntity<? extends ResponseDto> searchLecture(int type,String searchValue) {
+		return ResponseEntity.ok().body(DataResponseDto.of(lectureService.searchLecture(type,searchValue)));
+	}
+	
 	// READ
 	public ResponseEntity<? extends ResponseDto> get() {
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());

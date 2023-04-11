@@ -14,9 +14,9 @@ public class CourseReqDto {
 	
 	public Course toEntity() {
 		return Course.builder()
-				.lecture_id(lecture_id)
-				.student_id(student_id)
-				.regist_date(regist_date)
+				.ltm_id(lecture_id)
+				.sdm_id(student_id)
+				.registe_date(regist_date)
 				.build();
 	}
 }

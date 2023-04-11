@@ -7,34 +7,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.web.study.Service.LecturerService;
+import com.web.study.Service.InstructorService;
 import com.web.study.dto.DataResponseDto;
 import com.web.study.dto.ResponseDto;
-import com.web.study.dto.request.lecturer.LecturerReqDto;
+import com.web.study.dto.request.lecturer.InstructorReqDto;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-public class LecturerController {
-	public final LecturerService lecturerService;
+public class InstructorController {
+	public final InstructorService instructorService;
 	// Create
-		@PostMapping("/lecturer")
-		public ResponseEntity<? extends ResponseDto> register(@RequestBody LecturerReqDto lecturerReqDto) {
-			lecturerService.registLecturer(lecturerReqDto);
+		@PostMapping("/instructor")
+		public ResponseEntity<? extends ResponseDto> register(@RequestBody InstructorReqDto instructorReqDto) {
+			instructorService.registInstructor(instructorReqDto);
 
 			return ResponseEntity.ok().body(ResponseDto.ofDefault());
 		}
-		@GetMapping("lecturers")
-		public ResponseEntity<? extends ResponseDto> getlecturers() {
+		@GetMapping("instructors")
+		public ResponseEntity<? extends ResponseDto> getinstructors() {
 			
-			return ResponseEntity.ok().body(DataResponseDto.of(lecturerService.getLectureAll()));
+			return ResponseEntity.ok().body(DataResponseDto.of(instructorService.getInstructorAll()));
 		}
 		
-		@GetMapping("lecturer/{id}")
-		public ResponseEntity<? extends ResponseDto> getlecturerById(@PathVariable int id) {
+		@GetMapping("instructor/{id}")
+		public ResponseEntity<? extends ResponseDto> getinstructorById(@PathVariable int id) {
 			
-			return ResponseEntity.ok().body(DataResponseDto.of(lecturerService.findLectureById(id)));
+			return ResponseEntity.ok().body(DataResponseDto.of(instructorService.findInstructorById(id)));
 		}
 		
 		// Update

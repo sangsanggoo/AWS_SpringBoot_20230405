@@ -15,8 +15,8 @@ public class StudentReqDto {
 	
 	public Student toEntity() {
 		return Student.builder()
-				.name(name)
-				.birth_date(birth_date)
+				.sdm_name(name)
+				.sdm_birth(birth_date)
 				.build();
 	}
 }
