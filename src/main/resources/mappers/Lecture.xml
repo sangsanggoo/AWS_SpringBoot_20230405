@@ -25,14 +25,14 @@
 	</insert>
 	<select id="getLectureAll" resultType = "Lecture">
 		select
-			ltm_id,
-			ltm_name,
-			ltm_price,
-			itm_id 
+			lm.ltm_id,
+			lm.ltm_name,
+			lm.ltm_price,
+			lm.itm_id 
 		from
-			lecture_mst
+			lecture_mst lm
 	</select>
-	<select id="findLectureById" parameterType="Integer" resultType = "Lecture">
+	<select id="findLectureById" parameterType="Integer" resultMap = "lecture">
 		select
 			ltm_id,
 			ltm_name,

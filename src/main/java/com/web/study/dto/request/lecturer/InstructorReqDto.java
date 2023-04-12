@@ -10,13 +10,13 @@ import lombok.ToString;
 @ToString
 public class InstructorReqDto {
 	private int id;
-	private String lecture_id;
-	private LocalDate lecture_birth;
+	private String itm_name;
+	private LocalDate itm_birth;
 	
 	public Instructor toEntity() {
 		return Instructor.builder()
-				.itm_name(lecture_id)
-				.itm_birth(lecture_birth)
+				.itm_name(itm_name)
+				.itm_birth(itm_birth)
 				.build();
 	}
 }

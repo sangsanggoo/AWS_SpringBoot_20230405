@@ -42,7 +42,7 @@
 	
 	<insert id="registe" parameterType="Course">
 		insert into course_mst
-		values (0,#{ltm_id},#{sdm_id},#{regist_date})
+		values (0,#{ltm_id},#{sdm_id},#{registe_date})
 	</insert>
 	
 	

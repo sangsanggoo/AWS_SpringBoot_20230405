@@ -3,7 +3,7 @@ package com.web.study.Service;
 import java.util.List;
 
 import com.web.study.domain.entity.Course;
-import com.web.study.dto.request.lecturRegist.CourseReqDto;
+import com.web.study.dto.request.course.CourseReqDto;
 import com.web.study.dto.response.CourseRespDto;
 
 public interface CourseSerivce {
