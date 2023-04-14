@@ -1,0 +1,30 @@
+회원 가입
+	1.회원가입할 정보를 입력	
+	2.해당 정보를 회원강비 요청을 보낸다.
+	3. 회원가입 정보(password 암호화)ㄹf mDB에 저장한다.
+
+로그인
+	1. 로그인할 정보를 입력(username, password)
+	2. 해당 정보로 로그인 요청을 보낸다.
+	3. AuthenticationManger에게 username,password를 전달한다.
+	4. AuthenticationManger가 인증을 시작한다
+	5.UserDetailsService의 loadUserByUsername(String username)이 호출 된다.
+		Userdetails를 리턴 받아서 Authentication객체를 생성하기 위함
+		이 때 해당 username으로 DB에서 조회된 UserEntity가 없으면 등록되지 않은 회원
+		Authentication객체가 생성되면 로그인 성공
+	6. Authentication 객체를 jwt로 변환하는 작업을 해야함
+	7.변환된 jwt를 클라이언트에게 응답
+	8.클라이언트 jwt토큰을 로컬스토리지나 쿠키에 저장
+
+요청시 토큰 인증
+	1.요청 Header에 Bearer 방식으로 jwt토큰을 전달합니다
+	2.스프링 시큐리티에서 인증이 필요한 요청들은 JwtAuthenticationFilter를 통해 인증절차를 진행한다.
+		이 때 인증의 최종 목표는 securitycontextholder
+		Authenticaiotn 객체가 등록이 되어 있으면 인증이 된 것이다.
+	3.JwtAuthenticationFilter에서 요청 Header에 들어있는 Authorization의 JWT토큰을 추출한다.
+	4.JWT토큰을 검증한다.            
+		이 때 검증이 실패하여 Exception이 생성되면 AuthenticationEntryPoint가 실행 되면서 401응답을 하게 된다.
+	5.jwt토큰 검증이 완료되면 JWT 토큰에서 Claims를 추출한다.
+	6. Claims에서 username과 Authorities를 추출하여 Authentication 객체를 생성한다.
+	7.생성된 Authentication객체를 SecurityContext에 등록한다.
+	
