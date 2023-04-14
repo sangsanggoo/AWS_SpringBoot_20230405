@@ -25,6 +25,6 @@ public class PrincipalDetailsService implements UserDetailsService {
 		if(userEntity == null) {
 			throw new CustomException("사용자 정보를 다시 확인해보세요");
 		}
-		return userEntity.toPrincipar();
+		return userEntity.toPrincipal();
 	}
 }

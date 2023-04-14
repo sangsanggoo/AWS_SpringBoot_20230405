@@ -23,7 +23,7 @@ public class User {
 	
 	private List<Authority> authorities;
 	
-	public PrincipalUserDetails toPrincipar() {
+	public PrincipalUserDetails toPrincipal() {
 		List<String> roles = new ArrayList<>();
 		authorities.forEach(authority -> {
 			roles.add(authority.getRole().getRole_name());

@@ -23,23 +23,25 @@
 		insert into lecture_mst
 		values (0,#{ltm_name},#{ltm_price},#{itm_id})
 	</insert>
-	<select id="getLectureAll" resultType = "Lecture">
+	<select id="getLectureAll" resultMap = "lecture">
 		select
 			lm.ltm_id,
 			lm.ltm_name,
 			lm.ltm_price,
-			lm.itm_id 
+			im.itm_name
 		from
 			lecture_mst lm
+			left outer join instructor_mst im on (lm.itm_id = im.itm_id)
 	</select>
 	<select id="findLectureById" parameterType="Integer" resultMap = "lecture">
 		select
 			ltm_id,
 			ltm_name,
 			ltm_price,
-			itm_id 
+			itm_name
 		from
-			lecture_mst
+			lecture_mst lm
+			left outer join instructor_mst im on (lm.itm_id = im.itm_id)
 		where
 			ltm_id=#{id}
 	</select>

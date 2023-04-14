@@ -31,8 +31,12 @@ public class AuthServiceImpl implements AuthService {
 	// 회원 등록
 	@Override
 	public void registUser(RegistUserReqDto registUserReqDto) {
+		//비밀 번호를 암호화 시켜서 User 객체에 담아줌
 		User userEntity = registUserReqDto.toEntity();
+		//DB에 저장
 		userRepository.saveUser(userEntity);
+		
+		// 권한1을 리스트에 넣어줌 2,3도 가능함
 		List<Authority> authorities = new ArrayList<>();
 		authorities.add(Authority.builder().user_id(userEntity.getUser_id()).role_id(1).build());
 		
@@ -59,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
 		
 //		PrincipalDetailsServcie에 만들어준 UserDetailsService의 loadUserByUsername() 호출이 된다.
 		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-		
+		// Manager가 검증이 완료 되면 authentication을 만들어줌
 		
 		return jwtTokenProvider.createToken(authentication);
 	}
